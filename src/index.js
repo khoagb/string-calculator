@@ -12,7 +12,6 @@ export default class StringCalculator {
      *
      * @param numbers
      * @returns {*}
-     * @constructor
      */
     Add(numbers: string): number {
         const nums = StringCalculator.GetNumbersFromString(numbers);
@@ -25,7 +24,6 @@ export default class StringCalculator {
      *
      * @param numbers
      * @returns {Array}
-     * @constructor
      */
     static GetNumbersFromString(numbers: string): Array<number> {
         const results = [];
@@ -47,7 +45,6 @@ export default class StringCalculator {
      *
      * @param input
      * @returns {Array|{index: number, input: string}}
-     * @constructor
      */
     static GetDelimiter(input: string): string {
         let delimiter = input.match(/^\/\/.+\n/);
@@ -74,7 +71,6 @@ export default class StringCalculator {
      * Throw Exception if the numbers is negative.
      *
      * @param numbers
-     * @constructor
      */
     static CheckNegatives(numbers: Array<number>) {
         const errs = [];
