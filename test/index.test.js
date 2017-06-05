@@ -24,4 +24,21 @@ describe('String Calculator', () => {
             expect(calculator.Add('1,2,3,4,5')).to.equal(15);
         });
     });
+
+    describe('Task 3', () => {
+        it('should handle new lines between numbers (instead of commas)', () => {
+            expect(calculator.Add('1\n2,3\n4,5')).to.equal(15);
+            expect(calculator.Add('1,\n')).to.equal(1);
+        });
+
+        it('should support different delimiters', () => {
+            expect(calculator.Add('//;\n1;2\n3;4;5')).to.equal(15);
+        });
+    });
+
+    describe('Task 4', () => {
+        it('should throw an exception if pass the negative numbers', () => {
+            expect(() => calculator.Add('-1,-2,-3,4,5')).to.throw(Error, /^(Negatives not allowed)/)
+        });
+    });
 });
