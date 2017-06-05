@@ -29,8 +29,7 @@ export default class StringCalculator {
         if (numbers) {
             try {
                 const parts = numbers.split(',');
-                results.push(parseInt(parts[0]) || 0);
-                results.push(parseInt(parts[1]) || 0);
+                parts.forEach(num => results.push(parseInt(num) || 0));
             } catch (err) {
                 // error string
             }
