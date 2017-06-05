@@ -1,0 +1,36 @@
+{
+  "name": "string-calculator",
+  "description": "String Calculator",
+  "version": "1.0.0",
+  "author": "kodeplusdev",
+  "babel": {
+    "presets": [
+      "env",
+      "flow"
+    ],
+    "env": {
+      "production": {
+        "presets": [
+          "babili"
+        ]
+      }
+    }
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-babili": "^0.1.2",
+    "babel-preset-env": "^1.5.1",
+    "babel-preset-flow": "^6.23.0",
+    "babel-register": "^6.24.1",
+    "chai": "^4.0.1",
+    "flow-bin": "^0.47.0",
+    "mocha": "^3.4.2",
+    "rimraf": "^2.6.1"
+  },
+  "main": "src/index.js",
+  "scripts": {
+    "build": "rimraf dist && BABEL_ENV=production babel src -d dist --copy-files",
+    "test": "mocha --require babel-polyfill --compilers js:babel-register"
+  }
+}
