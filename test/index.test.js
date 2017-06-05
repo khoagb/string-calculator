@@ -1,4 +1,4 @@
-import { describe, it } from 'mocha';
+import { describe, it } from 'mocha'; // for autocomplete
 import { expect } from 'chai';
 import StringCalculator from '../src';
 
@@ -33,12 +33,35 @@ describe('String Calculator', () => {
 
         it('should support different delimiters', () => {
             expect(calculator.Add('//;\n1;2\n3;4;5')).to.equal(15);
+            expect(calculator.Add('//|\n1|2\n3|4|5')).to.equal(15);
         });
     });
 
     describe('Task 4', () => {
         it('should throw an exception if pass the negative numbers', () => {
             expect(() => calculator.Add('-1,-2,-3,4,5')).to.throw(Error, /^(Negatives not allowed)/)
+        });
+    });
+
+    describe('task 5', () => {
+        it('should skip the numbers which is bigger than 1000', () => {
+            expect(calculator.Add('2,1001')).to.equal(2);
+        });
+    });
+
+    describe('Task 7', () => {
+        it('should support any length of the delimiter', () => {
+            expect(calculator.Add('//[***]\n1***2***3')).to.equal(6);
+            expect(calculator.Add('//[+++]\n1+++2+++3')).to.equal(6);
+            expect(calculator.Add('//[   ]\n1   2   3')).to.equal(6);
+        });
+    });
+
+    describe('Task 8', () => {
+        it('should support multiple delimiters', () => {
+            expect(calculator.Add('//[*][%]\n1*2%3')).to.equal(6);
+            expect(calculator.Add('//[***][%%%]\n1***2%%%3')).to.equal(6);
+            expect(calculator.Add('//[\\][...][###]\n1\\2...3###4')).to.equal(10);
         });
     });
 });
